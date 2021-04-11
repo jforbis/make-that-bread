@@ -57,16 +57,16 @@ function plotData(subject) {
 
     Plotly.newPlot("bubble", data2, layout2); 
 
-    // // data to display per subject
-    // let meta = importedData.metadata;
-    // // console.log(meta);
-    // let filteredMeta = meta.filter(obj => obj.id == subject)[0];
-    // // console.log(filteredMeta);
-    // let subjectInfo = d3.select("#sample-metadata");
-    // subjectInfo.html("");
-    // Object.entries(filteredMeta).forEach((key,value) => {
-    //     subjectInfo.append("div").text(key[0] + ": " + key[1]);
-    // });
+    // data to display per subject
+    let meta = importedData.metadata;
+    // console.log(meta);
+    let filteredMeta = meta.filter(obj => obj.id == subject)[0];
+    console.log(filteredMeta);
+    let subjectInfo = d3.select("#sample-metadata");
+    subjectInfo.html("");
+    Object.entries(filteredMeta).forEach((key,value) => {
+        subjectInfo.append("div").text(key[0] + ": " + key[1]);
+    });
 })
 }
 
@@ -81,9 +81,20 @@ function optionChanged(subject) {
 
 // original page load
 function showData(subject) {
-    d3.json("data/stocks.json").then((importedData) => {
+
+    // d3.csv("data/tickers.csv").then(function(data) {
+    //     let selDropdown = d3.select("#selDataset");
+    //     console.log(data);
+    //     data.forEach((value) => {
+    //         let option = selDropdown.append("option");
+    //         option.text(value).property("value", value);
+    //     })
+    // });
+    d3.csv("data/tickers.csv").then((importedData) => {
         let selDropdown = d3.select("#selDataset");
-        importedData.ticks.forEach((value) => {
+        console.log(importedData);
+        // console.log(object.values(importedData));
+        importedData.columns.forEach((value) => {
             let option = selDropdown.append("option");
             option.text(value).property("value", value);
         });
@@ -91,3 +102,15 @@ function showData(subject) {
 }
 
 showData();
+
+d3.csv('data/tickers.csv',function(error,rows){
+
+    var obj = d3.map(rows, function(d){
+    return d.col1;
+    });
+    obj.forEach(function(k,v){
+    this[k] = [v.col2, v.col3, v.col4];
+    });
+
+    console.log(obj);
+});

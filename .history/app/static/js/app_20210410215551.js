@@ -57,16 +57,16 @@ function plotData(subject) {
 
     Plotly.newPlot("bubble", data2, layout2); 
 
-    // // data to display per subject
-    // let meta = importedData.metadata;
-    // // console.log(meta);
-    // let filteredMeta = meta.filter(obj => obj.id == subject)[0];
-    // // console.log(filteredMeta);
-    // let subjectInfo = d3.select("#sample-metadata");
-    // subjectInfo.html("");
-    // Object.entries(filteredMeta).forEach((key,value) => {
-    //     subjectInfo.append("div").text(key[0] + ": " + key[1]);
-    // });
+    // data to display per subject
+    let meta = importedData.metadata;
+    // console.log(meta);
+    let filteredMeta = meta.filter(obj => obj.id == subject)[0];
+    console.log(filteredMeta);
+    let subjectInfo = d3.select("#sample-metadata");
+    subjectInfo.html("");
+    Object.entries(filteredMeta).forEach((key,value) => {
+        subjectInfo.append("div").text(key[0] + ": " + key[1]);
+    });
 })
 }
 
@@ -81,8 +81,18 @@ function optionChanged(subject) {
 
 // original page load
 function showData(subject) {
-    d3.json("data/stocks.json").then((importedData) => {
+
+    // d3.csv("data/tickers.csv").then(function(data) {
+    //     let selDropdown = d3.select("#selDataset");
+    //     console.log(data);
+    //     data.forEach((value) => {
+    //         let option = selDropdown.append("option");
+    //         option.text(value).property("value", value);
+    //     })
+    // });
+    d3.csv("data/tickers.csv").then((importedData) => {
         let selDropdown = d3.select("#selDataset");
+        // console.log(importedData);
         importedData.ticks.forEach((value) => {
             let option = selDropdown.append("option");
             option.text(value).property("value", value);
@@ -91,3 +101,9 @@ function showData(subject) {
 }
 
 showData();
+
+d3.csv('data/tickers.csv',function(err,data){
+    const ticks = [data].map(function(d) { return d.col }
+)});
+
+    console.log(ticks);

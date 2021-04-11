@@ -81,9 +81,19 @@ function optionChanged(subject) {
 
 // original page load
 function showData(subject) {
-    d3.json("data/stocks.json").then((importedData) => {
+
+    // d3.csv("data/tickers.csv").then(function(data) {
+    //     let selDropdown = d3.select("#selDataset");
+    //     console.log(data);
+    //     data.forEach((value) => {
+    //         let option = selDropdown.append("option");
+    //         option.text(value).property("value", value);
+    //     })
+    // });
+    d3.csv("data/tickers.csv").then((importedData) => {
         let selDropdown = d3.select("#selDataset");
-        importedData.ticks.forEach((value) => {
+        // console.log(importedData);
+        importedData.columns.forEach((value) => {
             let option = selDropdown.append("option");
             option.text(value).property("value", value);
         });
@@ -91,3 +101,9 @@ function showData(subject) {
 }
 
 showData();
+
+d3.csv('data/tickers.csv',function(error,data){
+    const ticks = [data].map(function(d) { 
+        return d.col 
+})
+})
