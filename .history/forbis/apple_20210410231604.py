@@ -25,6 +25,6 @@ zip = info.info["zip"]
 print(f"""Company: {name}\n"""
 f"""Website: {website}\n"""
 f"""Address: \n"""
-f"""{address}\n"""
+f"""{address}"""
 f"""{city}, {state} {zip}""")
 print(data)

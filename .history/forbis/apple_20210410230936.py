@@ -22,9 +22,8 @@ address = info.info["address1"]
 city = info.info["city"]
 state = info.info["state"]
 zip = info.info["zip"]
-print(f"""Company: {name}\n"""
-f"""Website: {website}\n"""
-f"""Address: \n"""
-f"""{address}\n"""
-f"""{city}, {state} {zip}""")
+print(f"Company: {name}/
+Website: {website}/
+Address: {address}/
+{city}, {state} {zip}")
 print(data)
