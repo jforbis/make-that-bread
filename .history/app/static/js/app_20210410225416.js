@@ -105,5 +105,3 @@ function stockData(subject) {
     console.log(name)
     return name;
 }
-
-stockData();

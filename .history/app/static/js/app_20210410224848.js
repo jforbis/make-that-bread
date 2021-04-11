@@ -102,8 +102,5 @@ showData();
 function stockData(subject) {
     let apple = yf.Ticker("AAPL")
     let name = apple.info["longName"]
-    console.log(name)
     return name;
 }
-
-stockData();
