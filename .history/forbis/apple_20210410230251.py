@@ -19,3 +19,4 @@ info = yf.Ticker(choice)
 name = info.info["longName"]
 print(f"Company: {name}")
 print(data)
+

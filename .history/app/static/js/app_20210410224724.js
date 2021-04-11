@@ -100,10 +100,6 @@ function showData(subject) {
 showData();
 
 function stockData(subject) {
-    let apple = yf.Ticker("AAPL")
-    let name = apple.info["longName"]
-    console.log(name)
-    return name;
+    let apple = yf.download("AAPL", start=five_years, end=today)
+    return apple;
 }
-
-stockData();

@@ -91,8 +91,8 @@ function showData(subject) {
             let option = selDropdown.append("option");
             option.text(value).property("value", value);
 
-        // let stockInfo = d3.select("#sample-metadata");
-        // stockInfo.html("<h5><b>Company Name: </b>variable goes here</h5> <br><b>Open Price:</b>variable goes here <br><br><b>High: </b>variable goes here <br><br><b>Low: </b>variable goes here <br><br><b>Close Price: </b>variable goes here <br><br><b>Volume: </b>variable goes here");
+        let stockInfo = d3.select("#sample-metadata");
+        stockInfo.html("<h5><b>Company Name: </b>variable goes here</h5> <br><b>Open Price:</b>variable goes here <br><br><b>High: </b>variable goes here <br><br><b>Low: </b>variable goes here <br><br><b>Close Price: </b>variable goes here <br><br><b>Volume: </b>variable goes here");
         });
     });
 }
@@ -100,10 +100,6 @@ function showData(subject) {
 showData();
 
 function stockData(subject) {
-    let apple = yf.Ticker("AAPL")
-    let name = apple.info["longName"]
-    console.log(name)
-    return name;
+    let apple = yf.download("AAPL", start=five_years, end=today)
+    return apple;
 }
-
-stockData();

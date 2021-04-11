@@ -15,7 +15,8 @@ choice = input("Choose a stock ticker from the above list: ")
 
 
 data = yf.download(choice, start=five_years, end=today)
+print(data)
+
 info = yf.Ticker(choice)
 name = info.info["longName"]
-print(f"Company: {name}")
-print(data)
+print(name)
