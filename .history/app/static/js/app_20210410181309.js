@@ -1,7 +1,7 @@
 // reading in my data
 function plotData(subject) {
     d3.json("data/samples.json").then((importedData) => {
-    console.log(importedData);
+    // console.log(importedData);
     // console.log(importedData.names);
     // console.log(importedData.metadata);
     // console.log(importedData.samples);

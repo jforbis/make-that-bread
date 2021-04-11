@@ -1,7 +1,7 @@
 // reading in my data
 function plotData(subject) {
     d3.json("data/samples.json").then((importedData) => {
-    console.log(importedData);
+    // console.log(importedData);
     // console.log(importedData.names);
     // console.log(importedData.metadata);
     // console.log(importedData.samples);
@@ -90,14 +90,14 @@ function showData(subject) {
     //         option.text(value).property("value", value);
     //     })
     // });
-    // d3.csv("data/tickers.csv").then((importedData) => {
-    //     let selDropdown = d3.select("#selDataset");
-    //     consold.log(importedData);
-    //     importedData.names.forEach((value) => {
-    //         let option = selDropdown.append("option");
-    //         option.text(value).property("value", value);
-    //     });
-    // });
+    d3.json("data/tickers.json").then((importedData) => {
+        let selDropdown = d3.select("#selDataset");
+        console.log(importedData);
+        importedData.names.forEach((value) => {
+            let option = selDropdown.append("option");
+            option.text(value).property("value", value);
+        });
+    });
 }
 
 showData();

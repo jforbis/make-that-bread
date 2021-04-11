@@ -1,7 +1,7 @@
 // reading in my data
 function plotData(subject) {
     d3.json("data/samples.json").then((importedData) => {
-    console.log(importedData);
+    // console.log(importedData);
     // console.log(importedData.names);
     // console.log(importedData.metadata);
     // console.log(importedData.samples);
@@ -82,22 +82,18 @@ function optionChanged(subject) {
 // original page load
 function showData(subject) {
 
-    // d3.csv("data/tickers.csv").then(function(data) {
-    //     let selDropdown = d3.select("#selDataset");
-    //     console.log(data);
-    //     data.forEach((value) => {
-    //         let option = selDropdown.append("option");
-    //         option.text(value).property("value", value);
-    //     })
-    // });
-    // d3.csv("data/tickers.csv").then((importedData) => {
-    //     let selDropdown = d3.select("#selDataset");
-    //     consold.log(importedData);
-    //     importedData.names.forEach((value) => {
-    //         let option = selDropdown.append("option");
-    //         option.text(value).property("value", value);
-    //     });
-    // });
+    d3.json("data/tickers.csv").then((importedData) => {
+        let selDropdown = d3.select("#selDataset");
+
+        importedData.names.forEach((value) => {
+            let option = selDropdown.append("option");
+            option.text(value).property("value", value);
+        });
+        // importedData.names.forEach(function(name) {
+        //     selDropdown.append("option").text(name).property("value");
+        // });
+        // plotData();
+    });
 }
 
 showData();

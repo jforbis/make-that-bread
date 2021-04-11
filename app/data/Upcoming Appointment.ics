@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Epic Systems Corporation//MyChart//EN
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:7rWCEdgmqfT4pcUpiR/aDA==@mysaintlukes.corp.saint-lukes.org
+ORGANIZER;CN=mySaintLukes:DoNotReply@saint-lukes.org
+DTSTAMP:20210410T232017Z
+DTSTART:20210412T163000Z
+DTEND:20210412T163000Z
+SUMMARY;LANGUAGE=en-US:Covid-19 Vaccine with COVID-19 VACCINE - FIRST DOSE PARKVILLE
+LOCATION;LANGUAGE=en-US:6185 NW Jefferson St\, PARKVILLE MO 64152
+DESCRIPTION;LANGUAGE=en-US:\n\nBefore your appointment\, you must complete the eCheck-In and consent form \nin your mySaintLuke’s account. Click here \nhttps://mysaintlukes.corp.saint-lukes.org/ to access your mySaintLuke's \nhome page and scroll down to click on the "eCheck-In" button.\n\n\n\nVisit SaintLukeskc.org/VaccineEvent for directions and a map to your \nvaccination appointment. We are currently vaccinating in four locations\, \nso be sure to confirm which location you have scheduled.\n\n\n\n \n\nOn the day of your appointment: \n\n\n\nPlan to arrive no more than 5 minutes early. Your cooperation allows us to \nfollow social distancing guidelines and not overcrowd our clinic space. If \nyou arrive earlier than that\, you may be asked to go back and wait in your \ncar or wait outside.\n\nIf you arrive early\, wait in your car until 5 minutes before your \nappointment time. If you arrive by bus\, you will be directed to a waiting \narea until your appointment.\n\nTo allow for social distancing\, do not bring anyone with you unless you \nneed assistance\n\nWear a mask and a short-sleeved shirt\n\nBring your ID and insurance card\n\nYou will need to be monitored for at least 15 minutes following the \nvaccination. While you wait\, you will schedule your second (booster) dose. \nThis must be scheduled on a specific date. It is essential to take both \nvaccine doses to achieve the intended immune response.\n\nKeep your vaccination card to bring to your booster appointment. \n\nIf you have the opportunity to be vaccinated elsewhere\, please cancel this \nappointment so we may offer the slot to another patient. In mySaintLuke’s\, \ngo to Visits\, scroll down to click on your vaccine appointment\, and select \n“Cancel Appt.” To reschedule\, you must cancel your current appointment and \nthen schedule a new appointment. After you cancel\, go back to Visits then \nSchedule an Appointment\, or you may call 816-251-5515.\n\n\n\nWe have limited vaccine supply\, so if you do bring someone with you for \nassistance\, they will not be able to receive a vaccine. We can provide \nvaccination by appointment only\, and we cannot offer the vaccine to anyone \nwho does not have an appointment.
+END:VEVENT
+END:VCALENDAR
