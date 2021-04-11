@@ -8,7 +8,6 @@ five_years = today - relativedelta(years=+5)
 
 ticker_file = "../app/data/tickers.csv"
 tickers = pd.read_csv(ticker_file, header=None)
-tickers = list(tickers[0])
 
 print(tickers)
 choice = input("Choose a stock ticker from the above list: ")
