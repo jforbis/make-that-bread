@@ -1,7 +1,9 @@
 import pandas as pd
 import yfinance as yf
 from datetime import date
+from datetime import datetime as dt
 from dateutil.relativedelta import relativedelta
+import io
 
 today = date.today()
 five_years = today - relativedelta(years=+5)
@@ -27,4 +29,10 @@ f"""Website: {website}\n"""
 f"""Address: \n"""
 f"""{address}\n"""
 f"""{city}, {state} {zip}""")
+
+data = pd.DataFrame(data)
+data = data.reset_index(drop=False)
+
 print(data)
+
+data.to_json(r'data.json', orient="records")
