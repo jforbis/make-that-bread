@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+ 
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
@@ -22,14 +22,18 @@
       <div class="col-md-2">
         <div class="well">
           <h5>Stock Ticker:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          <select id= 'selDataset' name= 'tickers' method="GET" action="/" onchange="buildStockGraph()">
+            {% for name in tickers %}
+            <option value= "{{name}}" SELECTED>{{name}}</option>"
+            {% endfor %}
+        </select>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">CURRENT STATE</h3>
           </div>
           <div id="sample-metadata" class="panel-body">
-            <h5><b>Company Name: </b>{{name}}</h5> <br>
+            <h5><b>Company Name: </b>{{ name }}</h5> <br>
             <b>Open Price:</b>variable goes here <br><br>
             <b>High:</b>variable goes here <br><br>
             <b>Low:</b>variable goes here <br><br>
@@ -51,13 +55,9 @@
       </div>
     </div>
   </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="./static/js/app.js"></script>
-  <script src="./static/js/bonus.js"></script>
-  <script src="data/samples.json"></script>
-  
+  <script src="{{ url_for('static',filename='js/logic.js') }}"></script>
 </body>
 
 </html>
