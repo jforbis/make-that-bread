@@ -4,6 +4,7 @@ from pprint import pprint
 import json
 import ast
 import yfinance as yf
+import datetime as dt
 
 
 app = Flask(__name__)
@@ -22,7 +23,9 @@ def testfn():
         results = ast.literal_eval(request.data.decode('utf-8'))
         print (results)
         dataset = data[results]
-        name = yf.Ticker(results).info['longName']
+        dataset = dataset.reset_index(drop=False)
+        dataset['Date'] = dataset['Date'].dt.strftime('%Y-%m-%d')
+        dataset = dataset.dropna()
         return dataset.to_json(orient='records')
 
 

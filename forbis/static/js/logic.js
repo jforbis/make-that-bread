@@ -10,12 +10,76 @@ function buildStockGraph() {
         .then(function (response) {
             return response.json();
         }).then(function (text) {
-        const data = text;
-        console.log(ticker);
-        console.log(data);
+            const data = text;
+            console.log(ticker);
+            console.log(data);
+
+            document.getElementById("compname").innerHTML = "<b>Company Name: </b> " + ticker;
+
+
+            let dates = data.map(d => d.Date);
+
+            let highs = data.map(d => d.High);
+
+            let lows = data.map(d => d.Low);
+
+            let opens = data.map(d => d.Open);
+
+            let trace = {
+                x: dates,
+                y: highs,
+                // text: hovertext_topten,
+                type: "line",
+                name: "High",
+                line: {
+                    color: 'rgb(0,128,0)',
+                    dash: 'dashdot',
+                    width: 1
+                  }
+                };
+
+            let trace3 = {
+                x: dates,
+                y: opens,
+                // text: hovertext_topten,
+                type: "line",
+                name: "Open",
+                line: {
+                    color: 'rgb(0,0,255)',
+                    width: 1
+                    }
+                };
+
+            let trace2 = {
+                x: dates,
+                y: lows,
+                // text: hovertext_topten,
+                type: "line",
+                name: "Low",
+                line: {
+                    color: 'rgb(255, 0, 0)',
+                    dash: 'dashdot',
+                    width: 1
+                  }
+                };
+            
+            let graphdata = [trace, trace2, trace3];
+            
+
+            let layout = {
+            title: ticker + " Open Prices",
+            xaxis: { title: "Date",
+                     type: "date" },
+            yaxis: { title: "Price ($)" }
+            };
+        
+            Plotly.newPlot("graph", graphdata, layout);
+
 
         })
     };
+
+buildStockGraph();
 
 
 //     fetch('/get_stock')
