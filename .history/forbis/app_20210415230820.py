@@ -32,7 +32,9 @@ def testfn2():
     if request.method == 'POST':
         results = ast.literal_eval(request.data.decode('utf-8'))
         name = yf.Ticker(results).info
+        logo = yf.Ticker(results).info["logo_url"]
         return json.dumps(name)
+        return json.dumps(logo)
 
 if __name__ == "__main__":
     app.run(debug=True)

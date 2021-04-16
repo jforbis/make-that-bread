@@ -34,12 +34,14 @@ function buildStockGraph() {
         .then(function (text) {
 
             const name = text;
-            const stock_logo = name["logo_url"]
+            const web = text;
+            const logo = text;
 
-            console.log(name['website']);
-            console.log(stock_logo);
+            console.log(name);
             console.log(ticker);
             console.log(data);
+            console.log(web);
+            console.log(logo);
 
             let latest = data[data.length-1];
             let high = formatter.format(latest.High);
@@ -48,14 +50,12 @@ function buildStockGraph() {
             let close = formatter.format(latest.Close);
             let volume = numberWithCommas(latest.Volume);
 
-            document.getElementById("compname").innerHTML = "<b>Company Name: <br></b> " + name['longName'];
+            document.getElementById("compname").innerHTML = "<b>Company Name: <br></b> " + name;
             document.getElementById("high").innerHTML = "<b>High: </b> " + high;
             document.getElementById("low").innerHTML = "<b>Low: </b> " + low;
             document.getElementById("open").innerHTML = "<b>Open: </b> " + open;
             document.getElementById("close").innerHTML = "<b>Close: </b> " + close;
             document.getElementById("volume").innerHTML = "<b>Volume: </b> " + volume;
-            document.getElementById("url").innerHTML = "<a target=blank href =" + name["website"] + ">Learn about the company!</a>"
-            document.getElementById("logo").innerHTML = "<img class='card-img-top' src=" + stock_logo + " alt='Card image cap'></img>"
 
             let dates = data.map(d => d.Date);
             let highs = data.map(d => d.High);
@@ -73,7 +73,7 @@ function buildStockGraph() {
                     color: 'rgb(0,128,0)',
                     dash: 'dashdot',
                     width: 1
-                }
+                  }
                 };
 
             let trace3 = {
@@ -98,7 +98,7 @@ function buildStockGraph() {
                     color: 'rgb(255, 0, 0)',
                     dash: 'dashdot',
                     width: 1
-                }
+                  }
                 };
             var trace4 = {
 
