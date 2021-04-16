@@ -1,4 +1,15 @@
+var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  
+    // These options are needed to round to whole numbers if that's what you want.
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function buildStockGraph() {
     let ticker = d3.select("#selDataset").node().value;
@@ -6,24 +17,47 @@ function buildStockGraph() {
         method: 'POST',
         body: JSON.stringify(ticker)
     })
-
         .then(function (response) {
             return response.json();
         }).then(function (text) {
+            
             const data = text;
+
+    fetch('/get_data2', {
+        method: 'POST',
+        body: JSON.stringify(ticker)
+    })
+        .then(function (response) {
+            return response.json();
+
+        })
+        .then(function (text) {
+
+            const name = text;
+
+            console.log(name);
             console.log(ticker);
             console.log(data);
 
-            document.getElementById("compname").innerHTML = "<b>Company Name: </b> " + ticker;
+            let latest = data[data.length-1];
+            let high = formatter.format(latest.High);
+            let low = formatter.format(latest.Low);
+            let open = formatter.format(latest.Open);
+            let close = formatter.format(latest.Close);
+            let volume = numberWithCommas(latest.Volume);
 
+            document.getElementById("compname").innerHTML = "<b>Company Name: </b> " + name;
+            document.getElementById("high").innerHTML = "<b>High: </b> " + high;
+            document.getElementById("low").innerHTML = "<b>Low: </b> " + low;
+            document.getElementById("open").innerHTML = "<b>Open: </b> " + open;
+            document.getElementById("close").innerHTML = "<b>Close: </b> " + close;
+            document.getElementById("volume").innerHTML = "<b>Volume: </b> " + volume;
 
             let dates = data.map(d => d.Date);
-
             let highs = data.map(d => d.High);
-
             let lows = data.map(d => d.Low);
-
             let opens = data.map(d => d.Open);
+            let closes = data.map(d => d.Close);
 
             let trace = {
                 x: dates,
@@ -62,21 +96,42 @@ function buildStockGraph() {
                     width: 1
                   }
                 };
+            var trace4 = {
+
+                x: dates, 
+                close: closes, 
+                decreasing: {line: {color: 'rgb(255, 0, 0)'}}, 
+                high: highs, 
+                increasing: {line: {color: 'rgb(0,128,0)'}}, 
+                line: {color: 'rgba(31,119,180,1)'}, 
+                low: lows, 
+                open: opens, 
+                type: 'candlestick', 
+                xaxis: 'x', 
+                yaxis: 'y'
+            };
             
             let graphdata = [trace, trace2, trace3];
-            
+            let graphdata2 = [trace4]
 
             let layout = {
-            title: ticker + " Open Prices",
+            title: ticker + " Stock Prices",
             xaxis: { title: "Date",
                      type: "date" },
             yaxis: { title: "Price ($)" }
             };
+
+            let layout2 = {
+                title: ticker + " Candle Chart",
+                xaxis: { title: "Date",
+                         type: "date" },
+                yaxis: { title: "Price ($)" }
+                };
         
-            Plotly.newPlot("graph", graphdata, layout);
-
-
+            Plotly.newPlot("line", graphdata, layout);
+            Plotly.newPlot("candle", graphdata2, layout2);
         })
+    })
     };
 
 buildStockGraph();
