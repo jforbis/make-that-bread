@@ -54,7 +54,7 @@ function buildStockGraph() {
             document.getElementById("open").innerHTML = "<b>Open: </b> " + open;
             document.getElementById("close").innerHTML = "<b>Close: </b> " + close;
             document.getElementById("volume").innerHTML = "<b>Volume: </b> " + volume;
-            document.getElementById("url").innerHTML = "<a target=blank href =" + name["website"] + ">Learn about the company!</a>"
+            document.getElementById("url").innerHTML = "<a target=blank href=" + name["website"] + ">Learn about the company!</a>"
             document.getElementById("logo").innerHTML = "<img class='card-img-top' src=" + stock_logo + " alt='Card image cap'></img>"
 
             let dates = data.map(d => d.Date);

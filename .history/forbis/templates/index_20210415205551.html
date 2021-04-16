@@ -23,30 +23,6 @@
       </div>
     </div>
     <div class="row">
-
-      <div class="card" style="float: right; width: 160px">
-        <div class="card-body">
-          <h5 class="card-title"><b>Stock Predictor</b></h5>
-            <form method="post">
-              <div class="form-group"> <!-- Date input -->
-                <p class="control-label" for="date"><i>Date you want to predict:</i></p>
-                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-              </div>
-              <div class="form-group"> <!-- Submit button -->
-                <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-              </div>
-            </form>
-          <p class="card-text">Enter a date above, then click 'SUBMIT' for the Machine Learning model to predict what price the chosen stock will sell on that date.</p>
-          <button type="button" id="url" class="btn btn-light"></button>
-        </div>
-        <div class="card" style="padding: 10px; float: right; width: 16rem;">
-          <div id="logo"></div>
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-
       <div class="col-md-2">
         <div class="well">
           <h5>Stock Ticker:</h5>
@@ -62,25 +38,55 @@
             <h3 class="panel-title">CURRENT STATE</h3>
           </div>
           <div id="sample-metadata" class="panel-body">
-            <h5 id = 'compname'></h5> <br>
-            <h5 id = 'high'></h5> <br>
-            <h5 id = 'low'></h5> <br>
-            <h5 id = 'open'></h5> <br>
-            <h5 id = 'close'></h5> <br>
-            <h5 id = 'volume'></h5> <br>
-            
+            <h5><b>Company Name: </b>{{ name }}</h5> <br>
+            <b>Open Price:</b>variable goes here <br><br>
+            <b>High:</b>variable goes here <br><br>
+            <b>Low:</b>variable goes here <br><br>
+            <b>Close Price:</b>variable goes here <br><br>
+            <b>Volume:</b>variable goes here
           </div>
         </div>
+      </div>
 
+      <div style="position: relative; float: right" class="col-sm-6">
+        <div class="card">
+          <div id="prediction_card" class="card-body">
+            <h5 class="card-title">J. Forbis</h5>
+            <p class="card-text">
+                <div class="bootstrap-iso">
+                  <div class="container-fluid">
+                  <div class="row">
+                    <!-- <div class="col-md-6 col-sm-6 col-xs-12"> -->
+                
+                    <!-- Form code begins -->
+                    <form method="post">
+                      <div class="form-group"> <!-- Date input -->
+                        <label class="control-label" for="date">Date</label>
+                        <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text"/>
+                      </div>
+                      <div class="form-group"> <!-- Submit button -->
+                        <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                      </div>
+                      </form>
+                      <!-- Form code ends --> 
+                
+                    </div>
+                  </div>    
+                  </div>
+                </div>
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
       </div>
-      <div class="col-md-8" style="align-items: center">
-        <div id="line"></div>
+
+      <div class="col-md-5">
+        <div id="bar"></div>
       </div>
-      <div class="col-md-8" style="align-items: center">
-        <div id="candle"></div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-12">
         <div id="bubble"></div>
@@ -95,7 +101,7 @@
       var date_input=$('input[name="date"]'); //our date input has the name "date"
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       var options={
-        format: 'mm/dd/yyyy',
+        format: 'yyyy-mm-dd',
         container: container,
         todayHighlight: true,
         autoclose: true,

@@ -34,10 +34,9 @@ function buildStockGraph() {
         .then(function (text) {
 
             const name = text;
-            const stock_logo = name["logo_url"]
 
             console.log(name['website']);
-            console.log(stock_logo);
+            console.log(name['logo_url']);
             console.log(ticker);
             console.log(data);
 
@@ -54,8 +53,8 @@ function buildStockGraph() {
             document.getElementById("open").innerHTML = "<b>Open: </b> " + open;
             document.getElementById("close").innerHTML = "<b>Close: </b> " + close;
             document.getElementById("volume").innerHTML = "<b>Volume: </b> " + volume;
-            document.getElementById("url").innerHTML = "<a target=blank href =" + name["website"] + ">Learn about the company!</a>"
-            document.getElementById("logo").innerHTML = "<img class='card-img-top' src=" + stock_logo + " alt='Card image cap'></img>"
+            document.getElementById("url").innerHTML = "<a target=blank href=" + name["website"] + ">Learn about the company!</a>"
+            document.getElementById("logo").innerHTML = "<a href=" + name["logo_url"] + "></a>"
 
             let dates = data.map(d => d.Date);
             let highs = data.map(d => d.High);
