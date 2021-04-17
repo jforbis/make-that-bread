@@ -1,1 +1,1 @@
-web: gunicorn forbis:app
+web: gunicorn app:forbis/app
