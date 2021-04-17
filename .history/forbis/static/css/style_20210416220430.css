@@ -1,0 +1,58 @@
+#prediction_card {
+    align-items: right;
+}
+
+.hero {
+    position: relative;
+    height: 250px;
+    padding: 10px;
+    margin: 0;
+    opacity: 100;
+    /* background-image: url("../resources/top_image.jpg");
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-size: cover; */
+}
+
+.hero h1 {
+    margin-top: 200px;
+    font-size: 0.1rem;
+    animation: title 1.2s forwards linear;
+    color: black;
+    }
+    
+.hero p {
+    font-size: 2rem;
+    opacity: 0;
+    animation: subtitle 1.2s forwards linear;
+    animation-delay: 1.2s;
+}
+
+body {
+    background-image: url("../resources/top_image.jpg");
+}
+
+#master_container {
+    background-color: white;
+    width: 98%;
+    border: 2px solid white; 
+    border-radius: 15px;
+    align-self: center;
+}
+
+#page_title {
+    background-color: none;
+}
+
+#lt_col {
+    padding: 20px;
+}
+
+#graphs {
+    padding: 20px;
+}
+
+#rt_col {
+    position: top;
+    padding: 10px;
+}
