@@ -1,5 +1,6 @@
 absl-py==0.12.0
 appdirs==1.4.4
+as==0.1
 astor==0.8.1
 astunparse==1.6.3
 attrs==20.3.0
@@ -34,6 +35,7 @@ incremental==21.3.0
 itsdangerous==1.1.0
 Jinja2==2.11.3
 joblib==1.0.1
+Keras==2.4.3
 Keras-Preprocessing==1.1.2
 kiwisolver==1.3.1
 lxml==4.6.3
@@ -77,6 +79,172 @@ tensorboard-plugin-wit==1.8.0
 tensorflow @ https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.8.0-py3-none-any.whl
 tensorflow-estimator==2.4.0
 termcolor==1.1.0
+tf==1.0.0
+threadpoolctl==2.1.0
+tqdm==4.60.0
+Twisted==21.2.0
+typing-extensions==3.7.4.3
+urllib3==1.26.4
+w3lib==1.22.0
+websockets==8.1
+Werkzeug==1.0.1
+wrapt==1.12.1
+yahoo-fin==0.8.8
+yfinance==0.1.59
+zipp==3.4.1
+zope.interface==5.4.0
+(breadpyenv) johnforbis@johns-mbp make-that-bread % pip uninstall tensorflow @ https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.8.0-py3-none-any.whl
+ERROR: Invalid requirement: '@'
+(breadpyenv) johnforbis@johns-mbp make-that-bread % pip uninstall https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.8.0-py3-none-any.whl
+Found existing installation: tensorflow 1.8.0
+Uninstalling tensorflow-1.8.0:
+  Would remove:
+    /opt/anaconda3/envs/breadpyenv/bin/freeze_graph
+    /opt/anaconda3/envs/breadpyenv/bin/saved_model_cli
+    /opt/anaconda3/envs/breadpyenv/bin/tensorboard
+    /opt/anaconda3/envs/breadpyenv/bin/toco
+    /opt/anaconda3/envs/breadpyenv/bin/toco_from_protos
+    /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages/external/*
+    /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages/tensorflow-1.8.0.dist-info/*
+    /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages/tensorflow/*
+Proceed (y/n)? y
+  Successfully uninstalled tensorflow-1.8.0
+(breadpyenv) johnforbis@johns-mbp make-that-bread % tensorflow -V
+zsh: command not found: tensorflow
+(breadpyenv) johnforbis@johns-mbp make-that-bread % pip install tensorflow
+Collecting tensorflow
+  Using cached tensorflow-2.4.1-cp36-cp36m-macosx_10_11_x86_64.whl (173.9 MB)
+Requirement already satisfied: keras-preprocessing~=1.1.2 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (1.1.2)
+Requirement already satisfied: six~=1.15.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (1.15.0)
+Collecting tensorboard~=2.4
+  Using cached tensorboard-2.4.1-py3-none-any.whl (10.6 MB)
+Requirement already satisfied: google-pasta~=0.2 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (0.2.0)
+Requirement already satisfied: wrapt~=1.12.1 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (1.12.1)
+Requirement already satisfied: gast==0.3.3 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (0.3.3)
+Requirement already satisfied: protobuf>=3.9.2 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (3.15.8)
+Requirement already satisfied: numpy~=1.19.2 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (1.19.5)
+Requirement already satisfied: h5py~=2.10.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (2.10.0)
+Requirement already satisfied: astunparse~=1.6.3 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (1.6.3)
+Requirement already satisfied: grpcio~=1.32.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (1.32.0)
+Requirement already satisfied: wheel~=0.35 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (0.36.2)
+Requirement already satisfied: termcolor~=1.1.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (1.1.0)
+Requirement already satisfied: opt-einsum~=3.3.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (3.3.0)
+Requirement already satisfied: absl-py~=0.10 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (0.12.0)
+Requirement already satisfied: typing-extensions~=3.7.4 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (3.7.4.3)
+Requirement already satisfied: tensorflow-estimator<2.5.0,>=2.4.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (2.4.0)
+Requirement already satisfied: flatbuffers~=1.12.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorflow) (1.12)
+Requirement already satisfied: markdown>=2.6.8 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorboard~=2.4->tensorflow) (3.3.4)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorboard~=2.4->tensorflow) (1.8.0)
+Requirement already satisfied: google-auth<2,>=1.6.3 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorboard~=2.4->tensorflow) (1.29.0)
+Requirement already satisfied: werkzeug>=0.11.15 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorboard~=2.4->tensorflow) (1.0.1)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorboard~=2.4->tensorflow) (0.4.4)
+Requirement already satisfied: requests<3,>=2.21.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorboard~=2.4->tensorflow) (2.25.1)
+Requirement already satisfied: setuptools>=41.0.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from tensorboard~=2.4->tensorflow) (52.0.0.post20210125)
+Requirement already satisfied: cachetools<5.0,>=2.0.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4->tensorflow) (4.2.1)
+Requirement already satisfied: rsa<5,>=3.1.4 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4->tensorflow) (4.7.2)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4->tensorflow) (0.2.8)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard~=2.4->tensorflow) (1.3.0)
+Requirement already satisfied: importlib-metadata in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from markdown>=2.6.8->tensorboard~=2.4->tensorflow) (2.1.1)
+Requirement already satisfied: pyasn1<0.5.0,>=0.4.6 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from pyasn1-modules>=0.2.1->google-auth<2,>=1.6.3->tensorboard~=2.4->tensorflow) (0.4.8)
+Requirement already satisfied: chardet<5,>=3.0.2 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard~=2.4->tensorflow) (4.0.0)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard~=2.4->tensorflow) (2020.12.5)
+Requirement already satisfied: idna<3,>=2.5 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard~=2.4->tensorflow) (2.10)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard~=2.4->tensorflow) (1.26.4)
+Requirement already satisfied: oauthlib>=3.0.0 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard~=2.4->tensorflow) (3.1.0)
+Requirement already satisfied: zipp>=0.5 in /opt/anaconda3/envs/breadpyenv/lib/python3.6/site-packages (from importlib-metadata->markdown>=2.6.8->tensorboard~=2.4->tensorflow) (3.4.1)
+Installing collected packages: tensorboard, tensorflow
+  Attempting uninstall: tensorboard
+    Found existing installation: tensorboard 1.8.0
+    Uninstalling tensorboard-1.8.0:
+      Successfully uninstalled tensorboard-1.8.0
+Successfully installed tensorboard-2.4.1 tensorflow-2.4.1
+(breadpyenv) johnforbis@johns-mbp make-that-bread % tensorflow =V
+zsh: V not found
+(breadpyenv) johnforbis@johns-mbp make-that-bread % tensorflow -V
+zsh: command not found: tensorflow
+(breadpyenv) johnforbis@johns-mbp make-that-bread % pip freeze
+absl-py==0.12.0
+appdirs==1.4.4
+as==0.1
+astor==0.8.1
+astunparse==1.6.3
+attrs==20.3.0
+Automat==20.2.0
+beautifulsoup4==4.9.3
+bleach==1.5.0
+bs4==0.0.1
+cachetools==4.2.1
+certifi==2020.12.5
+chardet==4.0.0
+click==7.1.2
+constantly==15.1.0
+construct==2.10.66
+cssselect==1.1.0
+cycler==0.10.0
+fake-useragent==0.1.11
+feedparser==6.0.2
+Flask==1.1.2
+flatbuffers==1.12
+gast==0.3.3
+google-auth==1.29.0
+google-auth-oauthlib==0.4.4
+google-pasta==0.2.0
+grpcio==1.32.0
+gunicorn==20.1.0
+h5py==2.10.0
+html5lib==0.9999999
+hyperlink==21.0.0
+idna==2.10
+importlib-metadata==2.1.1
+incremental==21.3.0
+itsdangerous==1.1.0
+Jinja2==2.11.3
+joblib==1.0.1
+Keras==2.4.3
+Keras-Preprocessing==1.1.2
+kiwisolver==1.3.1
+lxml==4.6.3
+Markdown==3.3.4
+MarkupSafe==1.1.1
+matplotlib==3.3.4
+multitasking==0.0.9
+numpy==1.19.5
+oauthlib==3.1.0
+opt-einsum==3.3.0
+pandas==1.1.5
+parse==1.19.0
+Pillow==8.2.0
+ply==3.11
+protobuf==3.15.8
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pycryptodomex==3.10.1
+pyee==8.1.0
+pyparsing==2.4.7
+pyppeteer==0.2.5
+pyquery==1.4.3
+pysmi==0.3.4
+pysnmp==4.4.12
+python-dateutil==2.8.1
+pytz==2021.1
+PyYAML==5.4.1
+requests==2.25.1
+requests-html==0.10.0
+requests-oauthlib==1.3.0
+rsa==4.7.2
+scikit-learn==0.24.1
+scipy==1.5.4
+sgmllib3k==1.0.0
+six==1.15.0
+sklearn==0.0
+soupsieve==2.2.1
+tensor==0.3.6
+tensorboard==2.4.1
+tensorboard-plugin-wit==1.8.0
+tensorflow==2.4.1
+tensorflow-estimator==2.4.0
+termcolor==1.1.0
+tf==1.0.0
 threadpoolctl==2.1.0
 tqdm==4.60.0
 Twisted==21.2.0
