@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stock Prediction - Future State</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Our Style Sheet -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+
+<body>
+  <div id="page_title" class="row">
+    <div class="hero">
+      <h1>Stock Price Predictor</h1>
+      <p>Use the interactive charts below to explore a given stock and see its predicted price at a given point in the future.</p>
+    </div>
+  </div>
+
+  <div id="master_container" class="container">
+    <div class="row" style="padding-top: 20px;">
+      <!-- Stocks & Current State -->
+      <div class="col-3">
+        <div class="col-md-2">
+          <div class="well">
+            <h5>Stock Ticker:</h5>
+            <select id= 'selDataset' name= 'tickers' method="GET" action="/" onchange="buildStockGraph()">
+              {% for name in tickers %}
+              <option value= "{{name}}" SELECTED>{{name}}</option>"
+              {% endfor %}
+          </select>
+          </div>
+          
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">CURRENT STATE</h3>
+            </div>
+            <div id="sample-metadata" class="panel-body">
+              <h5 id = 'compname'></h5>
+              <h5 id = 'high'></h5> 
+              <h5 id = 'low'></h5> 
+              <h5 id = 'open'></h5> 
+              <h5 id = 'close'></h5> 
+              <h5 id = 'volume'></h5>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Graphs -->
+      <div class="col-md-offset-2">
+        <div class="col-md-9" style="align-self: center;">
+          <div id="line"></div>
+        </div>
+      </div>
+      <!-- Machine Learning -->
+      <div class="col-3">
+        <div class="card" style="float: right; width: 200px; padding-right: 20px">
+          <div class="card-body">
+            <h5 class="card-title"><b>Stock Predictor</b></h5>
+              <form method="post">
+                <div class="form-group"> <!-- Date input -->
+                  <p class="control-label" for="date"><i>Date you want to predict:</i></p>
+                  <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                </div>
+                <div class="form-group"> <!-- Submit button -->
+                  <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                </div>
+              </form>
+            <p class="card-text">Enter a date above, then click 'SUBMIT' for the Machine Learning model to predict what price the chosen stock will sell on that date.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Graphs -->
+      <div class="col-md-offset-2">
+        <div class="col-md-9" style="align-self: center;">
+          <div id="candle"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Machine Learning -->
+        <div class="card" style="width: 90%">
+          <div class="card-header">Company Info:
+            <div class="card-body">
+              <div id="logo"></div>
+              <button type="button" id="url" class="btn btn-light"></button>
+              <div class="card-body">
+                <div id="info" class="card-text"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static',filename='js/logic.js') }}"></script>
+  <script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+</body>
+
+</html>

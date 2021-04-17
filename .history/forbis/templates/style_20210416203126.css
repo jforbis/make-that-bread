@@ -1,0 +1,14 @@
+#prediction_card {
+    align-items: right;
+}
+
+.hero {
+    position: relative;
+    height: 750px;
+    padding: 10px;
+    margin: 0;
+    background-image: url("../../resources/images/IMG_1779.jpg");
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-size: cover;
+    }
