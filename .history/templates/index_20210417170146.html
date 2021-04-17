@@ -62,34 +62,26 @@
         </div>
       <!-- Machine Learning -->
       <div class="col-2">
-        <div class="card" style="float: right; width: 200px; margin-right: 10px;">
+        <div class="card" style="float: right; width: 200px;">
           <div class="card-body">
             <h5 class="card-title"><b>Stock Predictor</b></h5>
               <form method="post">
                 <div class="form-group"> <!-- Date input -->
                   <p class="control-label" for="date"><i>Date you want to predict:</i></p>
-                  <input class="form-control" id="date" name="date" placeholder="choose a date" type="text"/>
+                  <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
                 </div>
                 <div class="form-group"> <!-- Submit button -->
                   <button class="btn btn-primary " name="submit" type="submit" method="POST" action="/get_data3" onclick="buildStockPredict()">Submit</button>
                 </div>
               </form>
             <p class="card-text">Enter a date above, then click 'SUBMIT' for the Machine Learning model to predict what price the chosen stock will sell on that date.</p>
-            <div style="background-color: gray; border: white; border-radius: 15px; height: 2px; margin: 0 auto; width: 75%"></div>
-            <h5 style="margin-top: 5px;" class="card-title"><b>Prediction:</b></h5>
-            <p class="card-text">
-              Based on the date you chose above, our model has predicted the following:<br>
-              <ul>
-                <li>Future price - *variable*</li>
-                <li>Mean Absolute Error(mae) - *variable*</li>
-                <li>Accuracy Score - *variable*</li>
-              </ul>
-            </p>
+            <div style="padding: 5px; background-color: gray; border: white; border-radius: 15px; height: 2px; margin: 0 auto; width: 75%"></div>
+            <h5 class="card-title"><b>Prediction:</b></h5>
           </div>
         </div>
       </div>
     </div>
-    <div style="background-color: gray; border: white; border-radius: 15px; height: 5px; margin: 0 auto; width: 75%"></div>
+    <div style="background-color: black; border: white; border-radius: 15px; height: 5px; margin: 0 auto; width: 75%"></div>
     <div class="row">
       <!-- Candle Stick Graph -->
       <div class="col-12" style="align-self: center;">
