@@ -1,1 +1,1 @@
-web: gunicorn app:forbis/app.py
+web: gunicorn app:forbis/app
