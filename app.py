@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, jsonify, request
 from StockData import get_tickers
+from MachineLearning import predict_price
 from pprint import pprint
 import json
 import ast
@@ -10,7 +11,6 @@ import datetime as dt
 app = Flask(__name__)
 
 data, tickers = get_tickers()
-
 
 @app.route("/", methods=['GET'])
 def home():
@@ -33,6 +33,14 @@ def testfn2():
         results = ast.literal_eval(request.data.decode('utf-8'))
         name = yf.Ticker(results).info
         return json.dumps(name)
+
+@app.route('/get_data3', methods=['GET', 'POST'])
+def testfn3():
+    if request.method == 'POST':
+        results = ast.literal_eval(request.data.decode('utf-8'))
+        print (results)
+        return json.dumps(results)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
