@@ -51,11 +51,10 @@ body {
     border-radius: 15px;
     margin: 0 auto;
     margin-bottom: 50px;
-    margin-top: 300px;
 }
 
 .container {
-    height: 250px;
+    height: 500px;
 }
 
 #page_title {
@@ -99,7 +98,7 @@ body {
 .animated-title {
   color: #222;
   font-family: Roboto, Arial, sans-serif;
-  height: 90vmin;
+  height: 45vmin;
   left: 50%;
   position: absolute;
   top: 50%;
@@ -132,10 +131,7 @@ body {
   transform: translate(0, 100%);
 }
 .animated-title > div.text-top div span:first-child {
-    color: black;
-    font-size: 50px;
-    background: white;
-  /* color: rgba(0, 0, 0, 0.5); */
+  color: rgba(0, 0, 0, 0.5);
 }
 .animated-title > div.text-bottom {
   bottom: 0;

@@ -19,33 +19,19 @@
 </head>
 
 <body>
-  <div class="container">
-  <div class="animated-title">
-    <div class="text-top">
-      <div>
-        <span style="margin-bottom: 5px;">Stock Price</span>
-        <span>Predictor</span>
-      </div>
-    </div>
-    <div class="text-bottom">
-      <div style="font-size: 40px; text-align: right;">Make that bread!!</div>
-    </div>
-  </div>
-  </div>
-
-  <!-- <div id="page_title" class="row">
+  <div id="page_title" class="row">
     <div class="hero text-center">
       <h1 style="color: white;">Stock Price Predictor</h1>
       <span>Use the interactive charts below to explore a given stock and see its predicted price at a given point in the future.</span>
     </div>
-  </div> -->
+  </div>
 
   <div id="master_container">
     <div class="row" style="padding-top: 20px; padding-bottom: 10px;">
       <!-- Stocks & Current State -->
       <div class="col-2">
         <div class="col-md-12">
-          <div class="panel panel-body" style="background: rgb(218,218,218); border-color: white">
+          <div class="well">
             <h4>Stock Ticker:</h4>
             <select id= 'selDataset' style="font-size: 14px;" name= 'tickers' method="GET" action="/" onchange="buildStockGraph()">
               {% for name in tickers %}
@@ -54,11 +40,11 @@
           </select>
           </div>
           
-          <div class="panel panel-default" style="border-color: white;">
-            <div class="panel-heading" style="background-color: rgb(218,218,218);">
-              <h3 class="panel-title" style="border-color: white;">CURRENT STATE</h3>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">CURRENT STATE</h3>
             </div>
-            <div style="border: 2px; border-color: white;" class="panel-body" >
+            <div id="sample-metadata" class="panel-body">
               <h5 id = 'compname'></h5>
               <h5 id = 'high'></h5> 
               <h5 id = 'low'></h5> 
@@ -104,11 +90,11 @@
       <!-- Candle Stick Graph -->
       <div class="col-12" style="align-self: center;">
         <div class="col-offset-3" style="align-self: center; padding-top: 10px;">
-          <div id="candle" style="max-width: 90%; margin: 0 auto;"></div>
+          <div id="candle"></div>
         </div>
       </div>
     </div>
-    <div style="padding-top: 10px;" class="row">
+    <div style="padding-top: 10px; class="row">
       <!-- Company Info -->
         <div class="card border-dark mb-3" style="margin: 0 auto; max-width: 72rem;">
           <div class="card-header">

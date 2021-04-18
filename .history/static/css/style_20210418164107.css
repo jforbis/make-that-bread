@@ -10,11 +10,10 @@
 
 .hero {
     position: relative;
-    height: 275px;
+    height: 300px;
     padding: 10px;
     margin: 0 auto;
     padding-top: 20px;
-    vertical-align: bottom;
     /* background-color: white; */
     /* opacity: 100; */
     /* background-image: url("../resources/top_image.jpg");
@@ -51,11 +50,6 @@ body {
     border-radius: 15px;
     margin: 0 auto;
     margin-bottom: 50px;
-    margin-top: 300px;
-}
-
-.container {
-    height: 250px;
 }
 
 #page_title {
@@ -132,15 +126,10 @@ body {
   transform: translate(0, 100%);
 }
 .animated-title > div.text-top div span:first-child {
-    color: black;
-    font-size: 50px;
-    background: white;
-  /* color: rgba(0, 0, 0, 0.5); */
+  color: white;
 }
 .animated-title > div.text-bottom {
   bottom: 0;
-  color: white;
-  align-items: center;
 }
 .animated-title > div.text-bottom div {
   animation: showBottomText 0.5s;
@@ -148,5 +137,4 @@ body {
   animation-fill-mode: forwards;
   top: 0;
   transform: translate(0, -100%);
-  align-self: right;
 }

@@ -26,9 +26,9 @@ function buildStockPredict() {
             let tick = text.ticker;
             console.log(days, tick);
 
-            document.getElementById("FP").innerHTML = "<b>Future Price: <br></b> $" + days;
-            document.getElementById("MAE").innerHTML = "<b>Mean Absolute Error(mae): <br></b> " + days + "%";
-            document.getElementById("AS").innerHTML = "<b>Accuracy Score: <br></b> " + tick + "%";
+            document.getElementById("FP").innerHTML = "<b>Future Price: <br></b> " + days;
+            document.getElementById("MAE").innerHTML = "<b>Mean Absolute Error(mae): <br></b> " + days;
+            document.getElementById("AS").innerHTML = "<b>Accuracy Score: <br></b> " + tick;
         })
     } 
 
@@ -73,7 +73,7 @@ function buildStockGraph() {
             let close = formatter.format(latest.Close);
             let volume = numberWithCommas(latest.Volume);
 
-            document.getElementById("compname").innerHTML = "<b>Company: <br></b><i> " + name['longName'] + "</i>";
+            document.getElementById("compname").innerHTML = "<b>Company: <br></b> " + name['longName'];
             document.getElementById("high").innerHTML = "<b>High: </b> " + high;
             document.getElementById("low").innerHTML = "<b>Low: </b> " + low;
             document.getElementById("open").innerHTML = "<b>Open: </b> " + open;
@@ -149,17 +149,15 @@ function buildStockGraph() {
             xaxis: { title: "Date",
                      type: "date" },
             yaxis: { title: "Price ($)" },
-            plot_bgcolor: "rgb(218, 218, 218)",
-            paper_bgcolor: "rgb(218, 218, 218)",
+            plot_bgcolor: "rgb(218, 218, 218)"
+            paper_bgcolor: "rgb(218, 218, 218)"
             };
 
             let layout2 = {
                 title: "'" + ticker + "'" + " Candle Chart",
                 xaxis: { title: "Date",
                          type: "date" },
-                yaxis: { title: "Price ($)" },
-                plot_bgcolor: "rgb(218, 218, 218)",
-                paper_bgcolor: "rgb(218, 218, 218)",
+                yaxis: { title: "Price ($)" }
                 };
         
             Plotly.newPlot("line", graphdata, layout);
