@@ -14,24 +14,30 @@ function numberWithCommas(x) {
 function buildStockPredict() {
     let ticker = d3.select("#selDataset").node().value;
     let date1 = d3.select("#date").node().value;
+    let stuff = {"ticker":ticker,"date":date1}
     fetch('/get_data3', {
         method: 'POST',
-        body: JSON.stringify(date1)
+        body: JSON.stringify(stuff)
     })
         .then(function (response) {
             return response.json();
         }).then(function (text) {
-            console.log(text);
-            // const price = text.FuturePrice;
-            // const accscore = text.AccuracyScore;
-            // console.log(price);
-            // console.log(accscore);
+            let days = text.days;
+            let tick = text.ticker;
+            console.log(days, tick);
+
+            document.getElementById("FP").innerHTML = "<b>Future Price: <br></b> " + days;
+            document.getElementById("MAE").innerHTML = "<b>Mean Absolute Error(mae): <br></b> " + days;
+            document.getElementById("AS").innerHTML = "<b>Accuracy Score: <br></b> " + tick;
         })
     } 
 
 
 function buildStockGraph() {
     let ticker = d3.select("#selDataset").node().value;
+    document.getElementById("FP").innerHTML = " ";
+    document.getElementById("MAE").innerHTML = " ";
+    document.getElementById("AS").innerHTML = " ";
     fetch('/get_data', {
         method: 'POST',
         body: JSON.stringify(ticker)
