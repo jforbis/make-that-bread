@@ -26,9 +26,9 @@ function buildStockPredict() {
             let tick = text.ticker;
             console.log(days, tick);
 
-            document.getElementById("FP").innerHTML = "<b>Future Price: <br></b> $" + days;
-            document.getElementById("MAE").innerHTML = "<b>Mean Absolute Error(mae): <br></b> " + days + "%";
-            document.getElementById("AS").innerHTML = "<b>Accuracy Score: <br></b> " + tick + "%";
+            document.getElementById("FP").innerHTML = "<b>Future Price: <br></b> " + days;
+            document.getElementById("MAE").innerHTML = "<b>Mean Absolute Error(mae): <br></b> " + days;
+            document.getElementById("AS").innerHTML = "<b>Accuracy Score: <br></b> " + tick;
         })
     } 
 
