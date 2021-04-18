@@ -8,7 +8,7 @@ import ast
 import yfinance as yf
 import datetime as dt
 from datetime import date
-
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -40,12 +40,14 @@ def testfn2():
 def testfn3():
     if request.method == 'POST':
         results = ast.literal_eval(request.data.decode('utf-8'))
-        date1 = results['date']
+        date1 = datetime.strptime(results['date'], '%m/%d/%Y')
         ticker = results['ticker']
         today = date.today()
-        today = int((str(today).split("-",2))[2])
-        date1 = int((date1.split("/",2))[1])
-        days = date1 - today
+        today = today.strftime("%m/%d/%Y")
+        today = datetime.strptime(today, '%m/%d/%Y')
+        # today = int((str(today).split("-",2))[2])
+        # date1 = int((date1.split("/",2))[1])
+        days = (date1 - today).days
         dataset = test(days,ticker)
         return json.dumps(dataset)
 
