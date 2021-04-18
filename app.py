@@ -1,11 +1,13 @@
 from flask import Flask, render_template, redirect, jsonify, request
 from StockData import get_tickers
 from MachineLearning import predict_price
+from test import test
 from pprint import pprint
 import json
 import ast
 import yfinance as yf
 import datetime as dt
+from datetime import date
 
 
 app = Flask(__name__)
@@ -38,8 +40,14 @@ def testfn2():
 def testfn3():
     if request.method == 'POST':
         results = ast.literal_eval(request.data.decode('utf-8'))
-        print (results)
-        return json.dumps(results)
+        date1 = results['date']
+        ticker = results['ticker']
+        today = date.today()
+        today = int((str(today).split("-",2))[2])
+        date1 = int((date1.split("/",2))[1])
+        days = date1 - today
+        dataset = test(days,ticker)
+        return json.dumps(dataset)
 
 
 if __name__ == "__main__":

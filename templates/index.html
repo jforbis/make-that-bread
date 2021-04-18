@@ -65,25 +65,21 @@
         <div class="card" style="float: right; width: 200px; margin-right: 10px;">
           <div class="card-body">
             <h5 class="card-title"><b>Stock Predictor</b></h5>
-              <form method="post">
                 <div class="form-group"> <!-- Date input -->
                   <p class="control-label" for="date"><i>Date you want to predict:</i></p>
                   <input class="form-control" id="date" name="date" placeholder="choose a date" type="text"/>
                 </div>
                 <div class="form-group"> <!-- Submit button -->
-                  <button class="btn btn-primary " name="submit" type="submit" method="POST" action="/get_data3" onclick="buildStockPredict()">Submit</button>
+                  <button class="btn btn-primary " name="submit" type="submit" onclick="buildStockPredict()">Submit</button>
                 </div>
-              </form>
             <p class="card-text">Enter a date above, then click 'SUBMIT' for the Machine Learning model to predict what price the chosen stock will sell on that date.</p>
             <div style="background-color: gray; border: white; border-radius: 15px; height: 2px; margin: 0 auto; width: 75%"></div>
             <h5 style="margin-top: 5px;" class="card-title"><b>Prediction:</b></h5>
             <p class="card-text">
               Based on the date you chose above, our model has predicted the following:<br>
-              <ul>
-                <li>Future price - *variable*</li>
-                <li>Mean Absolute Error(mae) - *variable*</li>
-                <li>Accuracy Score - *variable*</li>
-              </ul>
+                <p id='FP'></p>
+                <p id='MAE'></p>
+                <p id="AS"></p>
             </p>
           </div>
         </div>
@@ -120,7 +116,7 @@
       <span style="text-align: center; width: 1440px;">Designed by: 
         <a target=new href="https://www.linkedin.com/in/john-forbis-cprp-96921513/">J. Forbis</a>, 
         <a target=new href="https://www.linkedin.com/in/stefano-imperiale/">S. Imperiale</a>,
-        <a target=new href="https://www.linkedin.com/in/john-stoddart-25532b191/">J. Stoddard</a>,
+        <a target=new href="https://www.linkedin.com/in/john-stoddart-25532b191/">J. Stoddart</a>,
         <a target=new href="https://www.linkedin.com/in/tstowell/">T. Stowell</a>,
         <a target=new href="https://www.linkedin.com/in/stevensweeny/">S. Sweeny</a> | Designed: April 2021 | <a target=new href="https://bootcamp.ku.edu/data/landing/?s=Google-Brand&pkw=%2Bku%20%2Banalytics%20%2Bbootcamp&pcrid=459931036282&pmt=b&utm_source=google&utm_medium=cpc&utm_campaign=GGL%7CUNIVERSITY-OF-KANSAS%7CSEM%7CDATA%7C-%7COFL%7CTIER-1%7CALL%7CBRD%7CBMM%7CSecondary%7CBootcamp&utm_term=%2Bku%20%2Banalytics%20%2Bbootcamp&s=google&k=%2Bku%20%2Banalytics%20%2Bbootcamp&utm_adgroupid=105636912377&utm_locationphysicalms=9023228&utm_matchtype=b&utm_network=g&utm_device=c&utm_content=459931036282&utm_placement=&gclid=Cj0KCQjw6-SDBhCMARIsAGbI7UjNJkQmHDQ51i6Ou0yuZvKAcUCSUWV61Fqr5wYCiJ2qOMcHbkiNXWoaAh48EALw_wcB&gclsrc=aw.ds">KU Data Analytics Bootcamp</a></span>
     </div>
@@ -138,6 +134,7 @@
         container: container,
         todayHighlight: true,
         autoclose: true,
+        startDate: new Date()
       };
       date_input.datepicker(options);
     })
