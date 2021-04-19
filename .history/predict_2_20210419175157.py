@@ -5,7 +5,7 @@ from tensorflow.keras.layers import LSTM, Dense, Dropout, Bidirectional
 from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
-from yahoo_fin import stock_info as si
+# from yahoo_fin import stock_info as si
 from collections import deque
 import time
 import os
@@ -226,7 +226,7 @@ def make_prediction(tick="AMZN", days=1):
 
     # Save stock market data to date-specific csv
     ticker = tick
-    # ticker_data_filename = os.path.join("data", f"{ticker}_{date_now}.csv")
+    ticker_data_filename = os.path.join("data", f"{ticker}_{date_now}.csv")
 
     # model name to save, making it as unique as possible based on parameters
     model_name = f"{date_now}_{ticker}"
@@ -235,12 +235,12 @@ def make_prediction(tick="AMZN", days=1):
         model_name += "-b"
     
     # create these folders if they does not exist
-    # if not os.path.isdir("results"):
-    #     os.mkdir("results")
-    # if not os.path.isdir("logs"):
-    #     os.mkdir("logs")
-    # if not os.path.isdir("data"):
-    #     os.mkdir("data")
+    if not os.path.isdir("results"):
+        os.mkdir("results")
+    if not os.path.isdir("logs"):
+        os.mkdir("logs")
+    if not os.path.isdir("data"):
+        os.mkdir("data")
         
     # Now, make function calls to implement the model
     # load the data
@@ -249,7 +249,7 @@ def make_prediction(tick="AMZN", days=1):
                     feature_columns=FEATURE_COLUMNS)
 
     # save the dataframe
-    # data["df"].to_csv(ticker_data_filename)
+    data["df"].to_csv(ticker_data_filename)
 
     # construct the model
     model = create_model(N_STEPS, len(FEATURE_COLUMNS), loss=LOSS, units=UNITS, cell=CELL, n_layers=N_LAYERS,

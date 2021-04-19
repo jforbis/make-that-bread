@@ -12,7 +12,7 @@ import os
 import numpy as np
 import pandas as pd
 import random
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 
 def make_prediction(tick="AMZN", days=1):
@@ -226,7 +226,7 @@ def make_prediction(tick="AMZN", days=1):
 
     # Save stock market data to date-specific csv
     ticker = tick
-    # ticker_data_filename = os.path.join("data", f"{ticker}_{date_now}.csv")
+    ticker_data_filename = os.path.join("data", f"{ticker}_{date_now}.csv")
 
     # model name to save, making it as unique as possible based on parameters
     model_name = f"{date_now}_{ticker}"
@@ -235,12 +235,12 @@ def make_prediction(tick="AMZN", days=1):
         model_name += "-b"
     
     # create these folders if they does not exist
-    # if not os.path.isdir("results"):
-    #     os.mkdir("results")
-    # if not os.path.isdir("logs"):
-    #     os.mkdir("logs")
-    # if not os.path.isdir("data"):
-    #     os.mkdir("data")
+    if not os.path.isdir("results"):
+        os.mkdir("results")
+    if not os.path.isdir("logs"):
+        os.mkdir("logs")
+    if not os.path.isdir("data"):
+        os.mkdir("data")
         
     # Now, make function calls to implement the model
     # load the data
@@ -249,7 +249,7 @@ def make_prediction(tick="AMZN", days=1):
                     feature_columns=FEATURE_COLUMNS)
 
     # save the dataframe
-    # data["df"].to_csv(ticker_data_filename)
+    data["df"].to_csv(ticker_data_filename)
 
     # construct the model
     model = create_model(N_STEPS, len(FEATURE_COLUMNS), loss=LOSS, units=UNITS, cell=CELL, n_layers=N_LAYERS,
@@ -277,17 +277,17 @@ def make_prediction(tick="AMZN", days=1):
     
     # Testing the Model
     # The function below takes a pandas dataframe and plots the true and predicted prices in the same plot using matplotlib
-    # def plot_graph(test_df):
-    #     """
-    #     This function plots true close price along with predicted close price
-    #     with blue and red colors respectively
-    #     """
-    #     plt.plot(test_df[f'true_adjclose_{LOOKUP_STEP}'], c='b')
-    #     plt.plot(test_df[f'adjclose_{LOOKUP_STEP}'], c='r')
-    #     plt.xlabel("Days")
-    #     plt.ylabel("Price")
-    #     plt.legend(["Actual Price", "Predicted Price"])
-    #     plt.show()
+    def plot_graph(test_df):
+        """
+        This function plots true close price along with predicted close price
+        with blue and red colors respectively
+        """
+        plt.plot(test_df[f'true_adjclose_{LOOKUP_STEP}'], c='b')
+        plt.plot(test_df[f'adjclose_{LOOKUP_STEP}'], c='r')
+        plt.xlabel("Days")
+        plt.ylabel("Price")
+        plt.legend(["Actual Price", "Predicted Price"])
+        plt.show()
         # plt.savefig("../static/resources/mpl.jpg")
         
     """ The below function takes the model and the data that were returned by
