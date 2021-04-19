@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, jsonify, request
 from StockData import get_tickers
 from MachineLearning import predict_price
 from test import test
-from predict_2 import make_prediction
+from predict import make_prediction
 from pprint import pprint
 import json
 import ast
@@ -49,7 +49,7 @@ def testfn3():
         # today = int((str(today).split("-",2))[2])
         # date1 = int((date1.split("/",2))[1])
         days = (date1 - today).days
-        dataset = make_prediction(tick=ticker, days=days)
+        dataset = test(days,ticker)
         return json.dumps(dataset)
 
 
