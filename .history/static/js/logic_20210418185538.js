@@ -22,10 +22,10 @@ function buildStockPredict() {
         .then(function (response) {
             return response.json();
         }).then(function (text) {
-            let price = text[0];
-            let mae = text[1];
-            let as = text[2];
-            console.log(text);
+            let price = text.future_price;
+            let mae = text.mean_absolute_error;
+            let as = text.accuracy_score;
+            console.log(price, mae, as);
 
             document.getElementById("FP").innerHTML = "<b>Future Price: <br></b> $" + price;
             document.getElementById("MAE").innerHTML = "<b>Mean Absolute Error(mae): <br></b> " + mae + "%";

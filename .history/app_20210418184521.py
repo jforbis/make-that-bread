@@ -50,7 +50,7 @@ def testfn3():
         # date1 = int((date1.split("/",2))[1])
         days = (date1 - today).days
         dataset = make_prediction(tick=ticker, days=days)
-        return json.dumps(dataset)
+        return json.dumps(dataset.item())
 
 
 if __name__ == "__main__":

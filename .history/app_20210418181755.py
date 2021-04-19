@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, jsonify, request
 from StockData import get_tickers
 from MachineLearning import predict_price
 from test import test
-from predict_2 import make_prediction
+from predict import make_prediction
 from pprint import pprint
 import json
 import ast

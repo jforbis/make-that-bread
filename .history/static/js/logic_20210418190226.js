@@ -23,8 +23,8 @@ function buildStockPredict() {
             return response.json();
         }).then(function (text) {
             let price = text[0];
-            let mae = text[1];
-            let as = text[2];
+            let mae = text.[1];
+            let as = text.[2];
             console.log(text);
 
             document.getElementById("FP").innerHTML = "<b>Future Price: <br></b> $" + price;
