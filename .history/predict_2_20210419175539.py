@@ -256,8 +256,8 @@ def make_prediction(tick="AMZN", days=1):
                         dropout=DROPOUT, optimizer=OPTIMIZER, bidirectional=BIDIRECTIONAL)
 
     # some tensorflow callbacks
-    checkpointer = ModelCheckpoint(os.path.join("results", model_name + ".h5"), save_weights_only=True, save_best_only=True, verbose=1)
-    tensorboard = TensorBoard(log_dir=os.path.join("logs", model_name))
+    # checkpointer = ModelCheckpoint(os.path.join("results", model_name + ".h5"), save_weights_only=True, save_best_only=True, verbose=1)
+    # tensorboard = TensorBoard(log_dir=os.path.join("logs", model_name))
 
     # train the model and save the weights whenever we see 
     # a new optimal model using ModelCheckpoint
