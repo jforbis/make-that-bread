@@ -5,6 +5,9 @@ astor==0.8.1
 astunparse==1.6.3
 attrs==20.3.0
 Automat==20.2.0
+beautifulsoup4==4.9.3
+bleach==1.5.0
+bs4==0.0.1
 cachetools==4.2.1
 certifi==2020.12.5
 chardet==4.0.0
@@ -18,6 +21,9 @@ feedparser==6.0.2
 Flask==1.1.2
 flatbuffers==1.12
 gast==0.3.3
+google-auth==1.29.0
+google-auth-oauthlib==0.4.4
+google-pasta==0.2.0
 grpcio==1.32.0
 gunicorn==20.1.0
 h5py==2.10.0
@@ -33,6 +39,7 @@ Keras==2.4.3
 Keras-Preprocessing==1.1.2
 kiwisolver==1.3.1
 lxml==4.6.3
+Markdown==3.3.4
 MarkupSafe==1.1.1
 matplotlib==3.3.4
 multitasking==0.0.9
@@ -41,6 +48,7 @@ oauthlib==3.1.0
 opt-einsum==3.3.0
 pandas==1.1.5
 parse==1.19.0
+Pillow==8.2.0
 ply==3.11
 protobuf==3.15.8
 pyasn1==0.4.8
@@ -55,12 +63,16 @@ pysnmp==4.4.12
 python-dateutil==2.8.1
 pytz==2021.1
 PyYAML==5.4.1
+requests==2.25.1
+requests-html==0.10.0
+requests-oauthlib==1.3.0
 rsa==4.7.2
 scikit-learn==0.24.1
 scipy==1.5.4
 sgmllib3k==1.0.0
 six==1.15.0
 sklearn==0.0
+soupsieve==2.2.1
 tensor==0.3.6
 tensorboard==2.4.1
 tensorboard-plugin-wit==1.8.0
