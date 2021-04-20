@@ -33,8 +33,6 @@ function buildStockPredict() {
             document.getElementById("FP").innerHTML = "<b>Future Price: <br></b> $" + price;
             document.getElementById("MAE").innerHTML = "<b><a style='color: black;' target=new href='https://en.wikipedia.org/wiki/Mean_absolute_error'>Mean Absolute Error(mae): </a><br></b> " + mae + "</a>%";
             document.getElementById("AS").innerHTML = "<b>Accuracy Score: <br></b> " + as + "%";
-            document.getElementById("butt").innerHTML = " "
-            document.getElementById("butt").innerHTML = "Submit"
         })
     } 
 
