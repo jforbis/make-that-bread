@@ -414,3 +414,5 @@ def make_prediction(tick="AMZN", days=1):
     shutil.rmtree("data")
     
     return future_price, accuracy_score, mean_absolute_error
+
+make_prediction()
