@@ -30,8 +30,8 @@ def make_prediction(tick="AMZN", days=1):
         np.random.set_state(state)
         np.random.shuffle(b)
         
-    def load_data(ticker, n_steps=50, scale=True, shuffle=True, lookup_step=1, split_by_date=True,
-                test_size=0.2, feature_columns=['adjclose', 'volume', 'open', 'high', 'low']):
+    def load_data(ticker, n_steps=25, scale=True, shuffle=True, lookup_step=1, split_by_date=True,
+                test_size=0.1, feature_columns=['adjclose', 'volume', 'open', 'high', 'low']):
         """
         Loads data from Yahoo Finance source, as well as scaling, shuffling, normalizing and splitting.
         Params:
@@ -193,7 +193,7 @@ def make_prediction(tick="AMZN", days=1):
     split_by_date_str = f"sbd-{int(SPLIT_BY_DATE)}"
 
     # test ratio size, 0.2 is 20%
-    TEST_SIZE = 0.9
+    TEST_SIZE = 0.1
 
     # features to use
     FEATURE_COLUMNS = ["adjclose", "volume", "open", "high", "low"]
