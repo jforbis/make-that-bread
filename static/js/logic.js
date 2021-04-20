@@ -13,7 +13,7 @@ function numberWithCommas(x) {
 
 function buildStockPredict() {
     document.getElementById("butt").innerHTML = " "
-    document.getElementById("butt").innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...'
+    document.getElementById("butt").innerHTML = '<button class="btn btn-primary" type="button" disabled><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...</button>'
 
     let ticker = d3.select("#selDataset").node().value;
     let date1 = d3.select("#date").node().value;
@@ -34,7 +34,7 @@ function buildStockPredict() {
             document.getElementById("MAE").innerHTML = "<b><a style='color: black;' target=new href='https://en.wikipedia.org/wiki/Mean_absolute_error'>Mean Absolute Error(mae): </a><br></b> " + mae + "</a>%";
             document.getElementById("AS").innerHTML = "<b>Accuracy Score: <br></b> " + as + "%";
             document.getElementById("butt").innerHTML = " "
-            document.getElementById("butt").innerHTML = "Submit"
+            document.getElementById("butt").innerHTML = '<button class="btn btn-primary" name="submit" type="submit" onclick="buildStockPredict()">Submit</button>'
         })
     } 
 
