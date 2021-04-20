@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stock Prediction - Future State</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Our Style Sheet -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+
+<body>
+  <!-- <div class="container">
+  <div class="animated-title">
+    <div class="text-top">
+      <div>
+        <span style="margin-bottom: 5px;">Stock Price</span>
+        <span>Predictor</span>
+      </div>
+    </div>
+    <div class="text-bottom">
+      <div style="font-size: 40px; text-align: right;">Make that bread!!</div>
+    </div>
+  </div>
+  </div> -->
+
+  <div id="page_title" class="row">
+    <div id="titlehead" class="col-4">
+    <!-- <div class="hero text-left"> -->
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+          <h1 class="mainhead">Stock Price <br> Predictor</h1>
+        </div>
+      </div>
+      <div style="background-color: black; border: black; border-radius: 15px; height: 5px; margin: 0 auto; width: 75%;"></div>
+      <div class="row">
+        <div id="secondaryhead">
+          <span>Use the charts below to:</span>
+          <ul>
+            <li style="margin-left: 10px;">explore a given stock</li>
+            <li style="margin-left: 10px;">predict a future price</li>
+            <li style="margin-left: 10px;">obtain additional info <br> on the company</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- </div> -->
+    </div>
+  </div>
+
+  <div id="master_container">
+    <div class="row" style="padding-top: 20px; padding-bottom: 10px;">
+      <!-- Stocks & Current State -->
+      <div class="col-2">
+        <div class="col-md-12">
+          <div class="panel panel-body" style="background: rgb(218,218,218); border-color: white">
+            <h4>Stock Ticker:</h4>
+            <select id= 'selDataset' style="font-size: 14px;" name= 'tickers' method="GET" action="/" onchange="buildStockGraph()">
+              {% for name in tickers %}
+              <option value= "{{name}}" SELECTED>{{name}}</option>"
+              {% endfor %}
+            </select>
+          </div>
+          
+          <div class="panel panel-default" style="border-color: white;">
+            <div class="panel-heading" style="background-color: rgb(218,218,218);">
+              <h3 class="panel-title" style="border-color: white;">CURRENT STATE</h3>
+            </div>
+            <div style="border: 2px; border-color: white;" class="panel-body" >
+              <h5 id = 'compname'></h5>
+              <h5 id = 'high'></h5> 
+              <h5 id = 'low'></h5> 
+              <h5 id = 'open'></h5> 
+              <h5 id = 'close'></h5> 
+              <h5 id = 'volume'></h5>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Line Graph -->
+        <div class="col-8">
+          <div id="line"></div>
+        </div>
+      <!-- Machine Learning -->
+      <div class="col-2">
+        <div class="card" style="float: right; width: 200px; margin-right: 10px; border-radius: 10px;">
+          <div class="card-body">
+            <h5 class="card-title"><b>Stock Predictor</b></h5>
+                <div class="form-group"> <!-- Date input -->
+                  <p class="control-label" for="date"><i>Date you want to predict:</i></p>
+                  <input class="form-control" id="date" name="date" placeholder="choose a date" type="text"/>
+                </div>
+                <div id="butt" class="form-group"> <!-- Submit button -->
+                  <button class="btn btn-primary " name="submit" type="submit" onclick="buildStockPredict()">Submit</button>
+                </div>
+            <p class="card-text">Enter a date above, then click 'SUBMIT' to see the Machine Learning model's prediction. </p>
+            <p style="color: rgb(44,126,246);">**this takes approx. 20 seconds**</p>
+            <div style="background-color: gray; border: white; border-radius: 15px; height: 2px; margin: 0 auto; width: 75%"></div>
+            <h5 style="margin-top: 5px;" class="card-title"><b>Prediction:</b></h5>
+            <p class="card-text">
+              Based on the date you chose above, our model has predicted the following:<br>
+                <p id='FP'></p>
+                <p id='MAE'></p>
+                <p id="AS"></p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background-color: white; border: white; border-radius: 15px; height: 5px; margin: 0 auto; width: 75%;"></div>
+    <div class="row">
+      <!-- Candle Stick Graph -->
+      <div class="col-12" style="align-self: center;">
+        <div class="col-offset-3" style="align-self: center; padding-top: 10px;">
+          <div id="candle" style="max-width: 90%; margin: 0 auto;"></div>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top: 10px;" class="row">
+      <!-- Company Info -->
+        <div class="card border-dark mb-3" style="margin: 0 auto; max-width: 72rem;">
+          <div class="card-header">
+            <h3>Company Info:</h3>
+          </div>
+          <div class="card-body text-dark">
+            <div id="logo"></div>
+            <button type="button" id="url" class="btn btn-secondary"></button>
+            <div class="card-body">
+              <div id="info" class="card-text" style="font-size: 14px;"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div id="spacer2"></div>
+  <footer class="footer mt-auto py-3 bg-light" style="margin: 0 auto; width: 1440px; margin-top: 50px; border-top: 2px; border: black;">
+    <div style="text-align: center; padding: 5px; width: 1440px;">
+      <span style="text-align: center; width: 1440px;">Designed by: 
+        <a target=new href="https://www.linkedin.com/in/john-forbis-cprp-96921513/">J. Forbis</a>, 
+        <a target=new href="https://www.linkedin.com/in/stefano-imperiale/">S. Imperiale</a>,
+        <a target=new href="https://www.linkedin.com/in/john-stoddart-25532b191/">J. Stoddart</a>,
+        <a target=new href="https://www.linkedin.com/in/tstowell/">T. Stowell</a>,
+        <a target=new href="https://www.linkedin.com/in/stevensweeny/">S. Sweeny</a> | Designed: April 2021 | <a target=new href="https://bootcamp.ku.edu/data/landing/?s=Google-Brand&pkw=%2Bku%20%2Banalytics%20%2Bbootcamp&pcrid=459931036282&pmt=b&utm_source=google&utm_medium=cpc&utm_campaign=GGL%7CUNIVERSITY-OF-KANSAS%7CSEM%7CDATA%7C-%7COFL%7CTIER-1%7CALL%7CBRD%7CBMM%7CSecondary%7CBootcamp&utm_term=%2Bku%20%2Banalytics%20%2Bbootcamp&s=google&k=%2Bku%20%2Banalytics%20%2Bbootcamp&utm_adgroupid=105636912377&utm_locationphysicalms=9023228&utm_matchtype=b&utm_network=g&utm_device=c&utm_content=459931036282&utm_placement=&gclid=Cj0KCQjw6-SDBhCMARIsAGbI7UjNJkQmHDQ51i6Ou0yuZvKAcUCSUWV61Fqr5wYCiJ2qOMcHbkiNXWoaAh48EALw_wcB&gclsrc=aw.ds">KU Data Analytics Bootcamp</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static',filename='js/logic.js') }}"></script>
+  <script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+        startDate: new Date()
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
+</body>
+
+</html>
